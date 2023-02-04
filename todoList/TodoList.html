@@ -101,11 +101,11 @@
         let btnCreate = document.querySelector('.create');
         let arr = [];
         let i = 1;
-        let num = JSON.parse(localStorage.getItem('arr'));
+//         let num = JSON.parse(localStorage.getItem('arr'));
 
-        for (let elem of num) {
-            createNewTask(elem);
-        }
+//         for (let elem of num) {
+//             createNewTask(elem);
+//         }
 
         btnCreate.addEventListener('click', function () {
             createNewTask('New' + i);
@@ -113,8 +113,8 @@
 
 
         function createNewTask(elem) {
-            arr.push(elem);
-            localStorage.setItem('arr', JSON.stringify(arr));
+//             arr.push(elem);
+//             localStorage.setItem('arr', JSON.stringify(arr));
             let div = document.createElement('div');
             div.className = 'tasks';
 
@@ -144,11 +144,11 @@
             divRem.appendChild(img);
 
             divRem.addEventListener('click', function (event) {
-                let i = arr.indexOf(span.textContent);
-                if (i >= 0) {
-                    arr.splice(i, 1);
-                }
-                localStorage.setItem('arr', JSON.stringify(arr));
+//                 let i = arr.indexOf(span.textContent);
+//                 if (i >= 0) {
+//                     arr.splice(i, 1);
+//                 }
+//                 localStorage.setItem('arr', JSON.stringify(arr));
                 div.remove()
                 event.preventDefault();
             })
@@ -172,11 +172,11 @@
             let self = this;
             input.addEventListener('blur', function () {
                 self.textContent = input.value;
-                let i = arr.indexOf(str);
-                if (i !== -1) {
-                    arr[i] = input.value;
-                }
-                localStorage.setItem('arr', JSON.stringify(arr));
+//                 let i = arr.indexOf(str);
+//                 if (i !== -1) {
+//                     arr[i] = input.value;
+//                 }
+//                 localStorage.setItem('arr', JSON.stringify(arr));
                 self.addEventListener('click', func);
             });
             this.removeEventListener('click', func);
