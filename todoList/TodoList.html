@@ -57,24 +57,25 @@
             margin: 5px;
             padding: 5px;
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
         }
 
         .checkbox {
-            width: 15px;
-            height: 15px;
-            margin: 8px;
-        }
-
-        .divRem {
-            width: 22px;
-            height: 22px;
+            width: 25px;
+            height: 25px;
             margin: 4px;
         }
 
+        .divRem {
+            width: 29px;
+            height: 29px;
+            margin: 2px;
+        }
+
         .img {
-            width: 22px;
-            height: 22px;
+            width: 29px;
+            height: 29px;
         }
 
         .hidden {
@@ -84,8 +85,16 @@
         }
 
         .input {
+            width: 365px;
+            height: 20px;
+            vertical-align: 2px;
             background-color: rgb(36, 36, 36);
             color: white;
+        }
+        .span {
+            /* font-size: 22px; */
+            margin-left: 5px;
+            vertical-align: 7px;
         }
     </style>
 </head>
@@ -135,6 +144,7 @@
 
             let span = document.createElement('span');
             span.textContent = elem;
+            span.className = 'span';
             span.addEventListener('click', funcInpt);
             MainSpan.appendChild(span);
 
@@ -171,14 +181,17 @@
             let input = document.createElement('input');
             input.value = this.textContent;
             let str = this.textContent;
-            input.style.width = 379 + 'px';
             input.className = 'input';
             this.textContent = '';
             this.appendChild(input);
             input.focus();
 
+            input.addEventListener('keydown', (event) => {
+                if (event.keyCode == 13) input.blur();
+            })
+            
             let self = this;
-            input.addEventListener('blur', function () {
+            input.addEventListener('blur', function func() {
                 self.textContent = input.value;
                 let i = arr.indexOf(str);
                 if (i !== -1) {
